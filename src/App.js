@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Title from "./Title";
+import NameSelector from "./NameSelector";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    constructor(props) {
+        // Pass props to parent class
+        super(props);
+        // Set initial state
+        this.state = {
+            names: [
+                "Carolyn Hung",
+                "Happy Lemon",
+                "Dharma Jaana",
+                "Dionísio Stacee",
+                "Aristocles Kenanyahu",
+                "Dex Loïc",
+                "Chanelle Otokar"
+            ]
+
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <Title names={this.state.names}/>
+                <NameSelector names={this.state.names}/>
+            </div>
+        );
+    }
 }
 
 export default App;
