@@ -17,15 +17,16 @@ class NameSelector extends React.Component {
         return (<div>
             <p>Click button to select the volunteer randomly</p>
             <DisplayNameList names={this.props.names}/>
-            <button onClick={this.handleClick}>Go</button>
+            <button ref="btn" onClick={this.handleClick} >Go</button>
                 {this.state.isSelected ? <SelectedName selectedName={this.selectedName}/> : null}
         </div>
         );
     }
 
     handleClick() {
+        this.refs.btn.setAttribute("disabled", "disabled");
         this.setState(state => ({
-            isSelected: true
+            isSelected: !this.state.isSelected
         }));
 
         console.log(this.selectedName);
